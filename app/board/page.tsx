@@ -1,27 +1,10 @@
-const mockBoards = [
-    {
-        id: 1,
-        title: 'Next.js 게시판 첫 글입니다',
-        author: 'youngmin',
-        createdAt: '2026-01-08',
-    },
-    {
-        id: 2,
-        title: 'App Router 너무 헷갈리네요',
-        author: 'song',
-        createdAt: '2026-01-07',
-    },
-    {
-        id: 3,
-        title: '서버 컴포넌트 감 잡는 중',
-        author: 'dev',
-        createdAt: '2026-01-06',
-    },
-];
 // max-w-3x : 최대 가로 넓이 제한
 // mx-auto : 가운데 정렬
 // p-6 : 여백
 // flex justify-between : 자식 요소 정렬
+
+import {mockBoards} from "@/components/mockBoard";
+import Link from "next/link";
 
 export default function Board(){
     return (
@@ -36,10 +19,13 @@ export default function Board(){
             <ul className="border-t">
                 {mockBoards.map((board) => (
                     <li key={board.id} className="flex justify-between items-center py-4 border-b">
-                        <div>
+                        <Link
+                          href={`/board/${board.id}`}
+                          className="block py-4 hover:bg-gray-50"
+                        >
                             <p className="font-medium">{board.title}</p>
                             <p className="text-sm text-gray-500">{board.author}</p>
-                        </div>
+                        </Link>
                         <span className="text-sm text-gray-400">
                             {board.createdAt}
                         </span>
