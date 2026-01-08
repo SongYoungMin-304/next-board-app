@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Header(){
     return (
             <header className="h-14 border-b">
-                <div className="h-full">
+                <div className="h-full flex justify-center items-center gap-4">
                     <Link href="/">홈</Link>
                     <Link href="/board">게시판</Link>
                 </div>
